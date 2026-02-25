@@ -1,8 +1,12 @@
 import { type PermissionResponse, createPermissionHook } from "expo-modules-core";
 import ExpoTwoWayAudioModule from "./ExpoTwoWayAudioModule";
 
-export async function initialize() {
-  return await ExpoTwoWayAudioModule.initialize();
+/**
+ * Initialize the audio engine at the given sample rate.
+ * @param sampleRate PCM sample rate in Hz (default 24000). Common values: 16000, 24000, 44100, 48000.
+ */
+export async function initialize(sampleRate: number = 24000) {
+  return await ExpoTwoWayAudioModule.initialize(sampleRate);
 }
 
 export function playPCMData(audioData: Uint8Array) {

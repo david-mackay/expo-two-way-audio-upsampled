@@ -19,13 +19,13 @@ class ExpoTwoWayAudioModule : Module() {
 
     override fun definition() = ModuleDefinition {
         Name("ExpoTwoWayAudio")
-        AsyncFunction("initialize") { promise: Promise ->
+        AsyncFunction("initialize") { sampleRate: Double, promise: Promise ->
             try {
                 if (audioEngine != null) {
                     promise.resolve(true)
                     return@AsyncFunction
                 }
-                audioEngine = appContext.reactContext?.let { AudioEngine(it) }
+                audioEngine = appContext.reactContext?.let { AudioEngine(it, sampleRate.toInt()) }
                 setupCallbacks()
                 promise.resolve(true)
             } catch (e: Exception) {

@@ -1,12 +1,14 @@
-# Speechmatics Two Way Audio
+# Expo Two Way Audio (24kHz)
+
+> Forked from [@speechmatics/expo-two-way-audio](https://github.com/speechmatics/expo-two-way-audio). Upsampled from 16kHz to 24kHz to match OpenAI Realtime API's native PCM16 format, eliminating server-side resampling.
 
 Expo module for capturing and playing pcm audio data in react-native apps (iOS and Android).
 
 The aim of the module is to facilitate creating real-time conversational apps. The following features are provided:
 
 - Request audio recording permissions
-- Get clean (applying Acoustic Echo Cancelling) microphone samples in PCM format (1 channel 16 bit at 16kHz)
-- Play audio samples in PCM format (1 channel 16 bit at 16kHz). Playback happens through main speaker unless external audio sources are connected.
+- Get clean (applying Acoustic Echo Cancelling) microphone samples in PCM format (1 channel 16 bit, configurable sample rate — defaults to 24kHz)
+- Play audio samples in PCM format (1 channel 16 bit, matching the configured sample rate). Playback happens through main speaker unless external audio sources are connected.
 - Provide volume level both for the input and output samples. Float between 0 and 1.
 - [iOS only] Get microphone mode and prompt user to select a microphone mode.
 
@@ -15,7 +17,7 @@ Check out our [examples/](./examples) to see the module in action.
 ## Installation
 
 ```
-npm i @speechmatics/expo-two-way-audio
+npm i github:david-mackay/expo-two-way-audio-upsampled
 ```
 
 ## Usage
@@ -31,12 +33,15 @@ Please check out our [examples/](./examples) to get full sample code.
    console.log(micPermission);
    ```
 
-1. Initialize the module before calling any audio functionality.
+1. Initialize the module before calling any audio functionality. Pass the desired sample rate (defaults to 24000 if omitted).
 
    ```JSX
    useEffect(() => {
        const initializeAudio = async () => {
-           await initialize();
+           // 24kHz (default) — matches OpenAI Realtime API
+           await initialize(24000);
+           // Or 16kHz for other use cases:
+           // await initialize(16000);
        };
        initializeAudio();
    }, []);

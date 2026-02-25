@@ -1,7 +1,7 @@
 {
-  "name": "@speechmatics/expo-two-way-audio",
-  "version": "0.1.2",
-  "description": "Native module for two way audio streaming",
+  "name": "expo-two-way-audio-upsampled",
+  "version": "0.2.0",
+  "description": "Native module for two way audio streaming at 24kHz (forked from @speechmatics/expo-two-way-audio)",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
@@ -19,13 +19,13 @@
     "open:android": "open -a \"Android Studio\" examples/basic-usage/android"
   },
   "keywords": ["react-native", "expo", "expo-two-way-audio", "ExpoTwoWayAudio"],
-  "repository": "https://github.com/speechmatics/expo-two-way-audio",
+  "repository": "https://github.com/david-mackay/expo-two-way-audio-upsampled",
   "bugs": {
-    "url": "https://github.com/speechmatics/expo-two-way-audio/issues"
+    "url": "https://github.com/david-mackay/expo-two-way-audio-upsampled/issues"
   },
   "author": "Speechmatics <devrel@speechmatics.com> (https://github.com/speechmatics)",
   "license": "MIT",
-  "homepage": "https://github.com/speechmatics/expo-two-way-audio#readme",
+  "homepage": "https://github.com/david-mackay/expo-two-way-audio-upsampled#readme",
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/react": "^18.0.25",

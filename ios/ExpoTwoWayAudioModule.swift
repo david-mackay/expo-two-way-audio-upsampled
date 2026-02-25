@@ -22,12 +22,12 @@ public class ExpoTwoWayAudioModule: Module {
 
         }
 
-        AsyncFunction("initialize") { () -> Bool in
+        AsyncFunction("initialize") { (sampleRate: Double) -> Bool in
             do {
                 if self.audioEngine != nil {
                     return true
                 }
-                self.audioEngine = try AudioEngine()
+                self.audioEngine = try AudioEngine(sampleRate: sampleRate)
                 self.setupMicrophoneCallback()
                 self.setupInputAudioLevelCallback()
                 self.setupOutputAudioLevelCallback()

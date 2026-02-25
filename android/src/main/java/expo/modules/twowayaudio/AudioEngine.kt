@@ -20,8 +20,8 @@ import java.util.concurrent.Executors
 import kotlin.math.pow
 
 
-class AudioEngine (context: Context) {
-    private val SAMPLE_RATE = 16000
+class AudioEngine (context: Context, sampleRate: Int = 24000) {
+    private val SAMPLE_RATE = sampleRate
     private val AUDIO_FORMAT = AudioFormat.ENCODING_PCM_16BIT
     private val CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_MONO
 
