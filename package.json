@@ -1,5 +1,5 @@
 {
-  "name": "expo-two-way-audio",
+  "name": "@speechmatics/expo-two-way-audio",
   "version": "0.2.0",
   "description": "Native module for two way audio streaming at 24kHz (forked from @speechmatics/expo-two-way-audio)",
   "main": "build/index.js",
